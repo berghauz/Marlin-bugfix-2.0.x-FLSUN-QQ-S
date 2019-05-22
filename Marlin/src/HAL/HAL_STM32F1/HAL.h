@@ -250,4 +250,5 @@ void HAL_enable_AdcFreerun(void);
 #define JTAG_DISABLE() afio_cfg_debug_ports(AFIO_DEBUG_SW_ONLY)
 #define JTAGSWD_DISABLE() afio_cfg_debug_ports(AFIO_DEBUG_NONE)
 
-void PWM_init(void);
+void PWM_vref_init(void);
+void PWM_fan_init(void);

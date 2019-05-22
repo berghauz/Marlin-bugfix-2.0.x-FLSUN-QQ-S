@@ -2581,7 +2581,9 @@ void Stepper::report_positions() {
         #endif
         // Set TIM3 to 36khz. Prescaler is 2000.
 	#ifdef __STM32F1__
-	  PWM_init();
+	  #if MB(MKS_ROBIN_MINI)
+	    PWM_vref_init();
+	  #endif
 	#endif
       #endif
     }

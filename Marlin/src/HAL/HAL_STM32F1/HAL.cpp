@@ -196,7 +196,16 @@ static void NVIC_SetPriorityGrouping(uint32_t PriorityGroup) {
   } }
 #endif
 
-void PWM_init(void) {
+void PWM_fan_init(void) {
+  HardwareTimer pwmtimer(8);
+  pwmtimer.pause();
+  pwmtimer.setPrescaleFactor(1);
+  pwmtimer.setOverflow(0xFFFF);
+  pwmtimer.refresh();
+  pwmtimer.resume();
+}
+
+void PWM_vref_init(void) {
   HardwareTimer pwmtimer(3);
   pwmtimer.pause();
   pwmtimer.setPrescaleFactor(1);
@@ -213,8 +222,8 @@ void HAL_init(void) {
   SPI.setModule(SPI_MODULE);
 #endif
 
-//#if MB(MKS_ROBIN_MINI)
-//  PWM_init();
+#if MB(MKS_ROBIN_MINI)
+  PWM_fan_init();
 //  #if PIN_EXISTS(VREF_XY)
 //    SET_PWM(VREF_XY_PIN);
 //    pwmWrite(VREF_XY_PIN, VREF_XY_VALUE);
@@ -227,7 +236,7 @@ void HAL_init(void) {
 //    SET_PWM(VREF_E1_PIN);
 //    pwmWrite(VREF_E1_PIN, VREF_E1_VALUE);
 //  #endif
-//#endif
+#endif
 //#if ENABLED(I2C_EEPROM)
 //#endif
 }
