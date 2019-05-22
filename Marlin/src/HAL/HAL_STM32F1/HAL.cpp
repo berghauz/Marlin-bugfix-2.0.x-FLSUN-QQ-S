@@ -223,7 +223,7 @@ void HAL_init(void) {
 #endif
 
 #if MB(MKS_ROBIN_MINI)
-  PWM_fan_init();
+  //PWM_fan_init();
 //  #if PIN_EXISTS(VREF_XY)
 //    SET_PWM(VREF_XY_PIN);
 //    pwmWrite(VREF_XY_PIN, VREF_XY_VALUE);
