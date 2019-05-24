@@ -2171,20 +2171,18 @@ void MarlinSettings::reset() {
   planner.settings.min_travel_feedrate_mm_s = DEFAULT_MINTRAVELFEEDRATE;
 
   #if HAS_CLASSIC_JERK
-    #if DISABLED(JUNCTION_DEVIATION)
-    //#ifndef DEFAULT_XJERK
-      //#define DEFAULT_XJERK 0
-    //#endif
-    //#ifndef DEFAULT_YJERK
-      //#define DEFAULT_YJERK 0
-    //#endif
-    //#ifndef DEFAULT_ZJERK
-      //#define DEFAULT_ZJERK 0
-    //#endif
-      planner.max_jerk[X_AXIS] = DEFAULT_XJERK;
-      planner.max_jerk[Y_AXIS] = DEFAULT_YJERK;
-      planner.max_jerk[Z_AXIS] = DEFAULT_ZJERK;
+    #ifndef DEFAULT_XJERK
+      #define DEFAULT_XJERK 10
     #endif
+    #ifndef DEFAULT_YJERK
+      #define DEFAULT_YJERK 10
+    #endif
+    #ifndef DEFAULT_ZJERK
+      #define DEFAULT_ZJERK 10
+    #endif
+    planner.max_jerk[X_AXIS] = DEFAULT_XJERK;
+    planner.max_jerk[Y_AXIS] = DEFAULT_YJERK;
+    planner.max_jerk[Z_AXIS] = DEFAULT_ZJERK;
     #if DISABLED(JUNCTION_DEVIATION) || DISABLED(LIN_ADVANCE)
       planner.max_jerk[E_AXIS] = DEFAULT_EJERK;
     #endif
