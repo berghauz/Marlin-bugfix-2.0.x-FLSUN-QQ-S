@@ -2172,13 +2172,13 @@ void MarlinSettings::reset() {
 
   #if HAS_CLASSIC_JERK
     #ifndef DEFAULT_XJERK
-      #define DEFAULT_XJERK 0
+      #define DEFAULT_XJERK 10
     #endif
     #ifndef DEFAULT_YJERK
-      #define DEFAULT_YJERK 0
+      #define DEFAULT_YJERK 10
     #endif
     #ifndef DEFAULT_ZJERK
-      #define DEFAULT_ZJERK 0
+      #define DEFAULT_ZJERK 10
     #endif
     planner.max_jerk[X_AXIS] = DEFAULT_XJERK;
     planner.max_jerk[Y_AXIS] = DEFAULT_YJERK;

@@ -38,9 +38,9 @@
 #define XPT2046_Z1_TRESHHOLD    10
 
 /* MKS Robin TFT v2.0 */
-#define XPT2046_X_CALIBRATION    12013
-#define XPT2046_X_OFFSET           -32
-#define XPT2046_Y_CALIBRATION    -8711
+#define XPT2046_X_CALIBRATION    12149
+#define XPT2046_X_OFFSET           -35
+#define XPT2046_Y_CALIBRATION    -8746
 #define XPT2046_Y_OFFSET           256
 
 /* MKS Robin TFT v1.1 */
